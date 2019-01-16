@@ -31,12 +31,16 @@ $smarty->caching = false;
 $smarty->cache_lifetime = 60*60*24;
 //设置左右标识符
 $smarty->left_delimiter='{';
-
 $smarty->right_delimiter='}';
 
 //使用
 //分配变量
-$smarty->assign('username','Imooc-data');
-$smarty->assign('age',20);
+//$smarty->assign('username','dollarkiller');
+//$smarty->assign('age',20);
+//of
+$smarty->assign([
+    'username'=>'dollarkiller',
+    'age'=>20
+]);
 //显示
 $smarty->display('smarty.html');
