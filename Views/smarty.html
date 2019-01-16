@@ -10,5 +10,12 @@
 <body>
     <h2>{$username}</h2>
     <h3>{$age}</h3>
+    <pre>
+        {var_dump($smarty.env)}
+    </pre>
+    <h5>{$smarty.now}</h5>
+    {config_load file='base.conf'}
+    <h6>{#FONT_SIZE#}</h6>
+    <h6>{$smarty.config.FONT_COLOR}</h6>
 </body>
 </html>

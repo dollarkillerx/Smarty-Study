@@ -43,4 +43,4 @@ $smarty->assign([
     'age'=>20
 ]);
 //显示
-$smarty->display('smarty.html');
+$smarty->display('smarty.html',1,2);
