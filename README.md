@@ -67,6 +67,7 @@ $smarty->display('smarty.html');
 ```
 
 >模板变量
+
 - 索引数组:{$arr[0]}
 - 关联数组:{$arr.username}
 - 对象:{$obj->getUsername()}
@@ -76,6 +77,7 @@ $开头蛤
 主意啊 { $var } 左右有空格就不会被解析啊
 
 >前端开发部分保留变量
+
 - {$smarty.get.page}
 - {$smarty.post.page}
 - {$smarty.cookies.username}
