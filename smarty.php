@@ -24,13 +24,15 @@ $smarty->setPluginsDir('./Plugins');
 //设置cache地址
 $smarty->setCacheDir('./runtime/Cache');
 
+
 //配置缓存
 $smarty->caching = false;
 //配置缓存时间
 $smarty->cache_lifetime = 60*60*24;
 //设置左右标识符
-$smarty->left_delimiter('{');
-$smarty->right_delimiter('}');
+$smarty->left_delimiter='{';
+
+$smarty->right_delimiter='}';
 
 //使用
 //分配变量
