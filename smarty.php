@@ -40,7 +40,13 @@ $smarty->right_delimiter='}';
 //of
 $smarty->assign([
     'username'=>'dollarkiller',
-    'age'=>20
+    'age'=>20,
+    'arr'=>[
+        'username'=>'dollarkiller',
+        'age'=>16
+    ]
 ]);
+
 //显示
-$smarty->display('smarty.html',1,2);
+//$smarty->display('smarty.html',1,2);
+$smarty->display('loop.html');

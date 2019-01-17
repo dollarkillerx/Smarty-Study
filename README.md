@@ -96,4 +96,32 @@ OR 使用Smarty保留变量$smarty.config.来调用
 - 加载,{config_load file='foo.conf}
 - 调用 {#bodyBgColler#} or {$smarty.config.pageTitle}
 
+>流程控制
+- {if}
+- {for}
+```
+{for $i=0 to 5 [max=最大循环] [step 步长]}
+{forelse}
+    no loop
+{/for}
+```
+- {while}
+- {foreach}
+```
+{foreach $arr as $key => $value}
+        {$key}:{$value}
+            {break}
+            {continue}
+        {$value@index}
+        {$value@key}
+        {$value@total}
+        {$value@show}
+        {$value@first}
+        {$value@last}
+    {foreachelse}
+        data does not exist
+    {/foreach}
+```
+- {section} 遍历数组
+
 
