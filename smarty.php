@@ -26,12 +26,21 @@ $smarty->setCacheDir('./runtime/Cache');
 
 
 //配置缓存
-$smarty->caching = false;
+$smarty->caching = 1;
 //配置缓存时间
 $smarty->cache_lifetime = 60*60*24;
 //设置左右标识符
 $smarty->left_delimiter='{';
 $smarty->right_delimiter='}';
+
+//$smarty->cache_lifetime = 30;
+//$smarty->display('a.html');
+//
+//$smarty->cache_lifetime = 30;
+//$smarty->display('b.html');
+//
+//$smarty->cache_lifetime = 30;
+//$smarty->display('c.html');
 
 //使用
 //分配变量
@@ -83,12 +92,23 @@ $smarty->right_delimiter='}';
 //    }
 //});
 
-$smarty->assign('text','This is a para');
+//if没有被缓存就查询 并且分配
+if (!$smarty->isCached('plugins.html',$_SERVER['REQUEST_URI'])){
+    echo 'SELECT * FROM DATABASE';
+    //数据库查询
+    $data= [];
+    $smarty->assign('text','This is a para');
 
-//显示
-//$smarty->display('smarty.html',1,2);
-//$smarty->display('loop.html');
-//$smarty->display('tag_func.html');
-//$smarty->display('modifier.html');
-//$smarty->display('bloock_func.html');
-$smarty->display('plugins.html');
+    //显示
+    //$smarty->display('smarty.html',1,2);
+    //$smarty->display('loop.html');
+    //$smarty->display('tag_func.html');
+    //$smarty->display('modifier.html');
+    //$smarty->display('bloock_func.html');
+    $smarty->assign('users',$data);
+}
+
+//$smarty->clearCache('plugins.html',$_SERVER['REQUEST_URI']);
+//$smarty->clearAllCache();
+
+$smarty->display('plugins.html',$_SERVER['REQUEST_URI']);

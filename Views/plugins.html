@@ -8,6 +8,10 @@
     <title>Plugins</title>
 </head>
 <body>
+    <!--{*nocache*}-->
+    <!--<H1>{*time()*}</H1>-->
+    <!--{*/nocache*}-->
+    {time()|date_format:"%H:%M:%S" nocache}
     {font text=$text color='red'}
     {$text|link:'https://github.com/dollarkillerx'}
 

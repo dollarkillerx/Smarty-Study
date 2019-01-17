@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-17 13:06:41
+/* Smarty version 3.1.33, created on 2019-01-17 13:08:52
   from 'G:\GITHUB\Smarty-Study\Views\plugins.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c407de1dfd1a4_29518813',
-  'has_nocache_code' => false,
+  'unifunc' => 'content_5c407e64958af0_35758240',
+  'has_nocache_code' => true,
   'file_dependency' => 
   array (
     '3f45d0c911acd8a54adaf2f86d71c48e26ccdab0' => 
     array (
       0 => 'G:\\GITHUB\\Smarty-Study\\Views\\plugins.html',
-      1 => 1547730399,
+      1 => 1547730530,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c407de1dfd1a4_29518813 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'G:\\GITHUB\\Smarty-Study\\Plugins\\function.font.php','function'=>'smarty_function_font',),1=>array('file'=>'G:\\GITHUB\\Smarty-Study\\Plugins\\modifier.link.php','function'=>'smarty_modifier_link',),2=>array('file'=>'G:\\GITHUB\\Smarty-Study\\Plugins\\block.link.php','function'=>'smarty_block_link',),));
+function content_5c407e64958af0_35758240 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'G:\\GITHUB\\Smarty-Study\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),1=>array('file'=>'G:\\GITHUB\\Smarty-Study\\Plugins\\function.font.php','function'=>'smarty_function_font',),2=>array('file'=>'G:\\GITHUB\\Smarty-Study\\Plugins\\modifier.link.php','function'=>'smarty_modifier_link',),3=>array('file'=>'G:\\GITHUB\\Smarty-Study\\Plugins\\block.link.php','function'=>'smarty_block_link',),));
+echo '/*%%SmartyNocache:1752828055c407e648fb713_50891292%%*/<?php $_smarty_tpl->_checkPlugins(array(0=>array(\'file\'=>\'G:\\\\GITHUB\\\\Smarty-Study\\\\libs\\\\plugins\\\\modifier.date_format.php\',\'function\'=>\'smarty_modifier_date_format\',),));
+?>/*/%%SmartyNocache:1752828055c407e648fb713_50891292%%*/';
+$_smarty_tpl->compiled->nocache_hash = '1752828055c407e648fb713_50891292';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +36,11 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'G:\\GITHUB\\Smarty-Study\\Pl
     <title>Plugins</title>
 </head>
 <body>
-    <H1><?php echo time();?>
-</H1>
+    <!---->
+    <!--<H1></H1>-->
+    <!---->
+    <?php echo '/*%%SmartyNocache:1752828055c407e648fb713_50891292%%*/<?php echo smarty_modifier_date_format(time(),"%H:%M:%S");?>
+/*/%%SmartyNocache:1752828055c407e648fb713_50891292%%*/';?>
 
     <?php echo smarty_function_font(array('text'=>$_smarty_tpl->tpl_vars['text']->value,'color'=>'red'),$_smarty_tpl);?>
 

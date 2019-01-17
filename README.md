@@ -1,7 +1,7 @@
 # Smarty-Study
 Smarty Study
 
->基础
+## 基础
 
 ```
 //设置模板目录
@@ -23,7 +23,7 @@ $smarty->left_delimiter='{';
 $smarty->right_delimiter='}';
 ```
 
->简单使用
+## 简单使用
 
 ```
 //分配变量
@@ -96,7 +96,7 @@ OR 使用Smarty保留变量$smarty.config.来调用
 - 加载,{config_load file='foo.conf}
 - 调用 {#bodyBgColler#} or {$smarty.config.pageTitle}
 
->流程控制
+## 流程控制
 - {if}
 - {for}
 ```
@@ -124,7 +124,7 @@ OR 使用Smarty保留变量$smarty.config.来调用
 ```
 - {section} 遍历数组
 
->前端常用标签函数
+## 前端常用标签函数
 - assign  定义变量
 ```
     {assign var="name" value="Jason"}
@@ -211,7 +211,7 @@ $smarty->assign('options',[
 options=$options 就可以用写vulues optput了
 ```
 
->前端开发部分变量修饰器
+## 前端开发部分变量修饰器
 
 - capitalize
 ```
@@ -325,7 +325,7 @@ options=$options 就可以用写vulues optput了
     折行处理
 ```
 
->前端部分块状函数
+## 前端部分块状函数
 - nocache
 ```
     不缓存
@@ -381,4 +381,55 @@ options=$options 就可以用写vulues optput了
     }
     文件放到Plugins下 文件夹命名 block|function|modifier.函数名称.php
     方法命名 smarty_function|block|modifier_函数名称()
+```
+
+## 缓存
+
+- $smarty->caching = 1|2|0;
+    - 1 全局缓存 缓存时长相同
+    - 2 在display 针对每个模板设定不一样的时长
+    - 0 关闭缓存
+- $smarty->setCacheDir("./cache");
+- $smarty->setCacheLifetime(300);//以秒为单位,-1永不过期
+```
+$smarty->display('index.tpl');//调用display就会生成缓存
+$smarty->display('index.tpl',$_SERVER['REQUEST_URL']);//第二个参数为ID可以更具url的不同生成不同的缓存文件
+```
+>相关函数
+
+- isCached()  //查看是否被缓存
+- clearCache()  //清除缓存
+- clearAllCache()  //清楚所有缓存
+```
+    //if没有被缓存就查询 并且分配
+    if (!$smarty->isCached('plugins.html',$_SERVER['REQUEST_URI'])){
+        echo 'SELECT * FROM DATABASE';
+        //数据库查询
+        $data= [];
+        $smarty->assign('text','This is a para');
+    
+        //显示
+        //$smarty->display('smarty.html',1,2);
+        //$smarty->display('loop.html');
+        //$smarty->display('tag_func.html');
+        //$smarty->display('modifier.html');
+        //$smarty->display('bloock_func.html');
+        $smarty->assign('users',$data);
+    }
+    
+    //清理缓存
+    $smarty->clearCache('plugins.html',$_SERVER['REQUEST_URI']);
+    $smarty->clearAllCache()
+    
+```
+
+>cache模板函数
+
+- {nocache}...{/nocache}
+- {$time | date_format nocache}
+```
+    {time()|date_format:"%H:%M:%S" nocache}
+    {nocache}
+        code...
+    {/nocache}
 ```
