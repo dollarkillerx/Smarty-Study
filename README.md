@@ -339,3 +339,46 @@ options=$options 就可以用写vulues optput了
     {/textformat}
     {$war}
 ```
+
+# Smarty插件的开发
+- 使用registerPlugin()方法扩充插件格式
+```
+    registerPlugin("function/modifier/block",'模板函数名','自定义的函数名称')
+    
+    //注册func
+    $smarty->registerPlugin('function','font',function ($attributes){
+       $text = $attributes['text'];
+       $color = $attributes['color'] ?? 'black';
+       return '<span style="color:'.$color.'">'.$text.'</span>';
+    });
+    //注册变量修饰器
+    $smarty->registerPlugin('modifier','link',function ($text,$href,$isCapitalize=false){
+        if (!$isCapitalize){
+            return '<a href="'.$href.'">'.$text.'</a>';
+        }else{
+            return '<a href="'.$href.'">'.strtoupper($text).'</a>';
+        }
+    });
+    //注册块状函数
+    $smarty->registerPlugin('block','link',function ($attributes,$text){
+        $href = $attributes['href'];
+        if (!is_null($text)){
+            return '<a href="'.$href.'">'.$text.'</a>';
+        }
+    });
+
+```
+- 在smarty模板的lib/plugins/目录下创建函数插件文件
+    - modifier.调节器名.php
+    - function.标签名称.php
+    - block.块函数名称.php
+```
+    function smarty_function_font($attributes)
+    {
+        $text = $attributes['text'];
+        $color = $attributes['color'] ?? 'black';
+        return '<span style="color:' . $color . '">' . $text . '</span>';
+    }
+    文件放到Plugins下 文件夹命名 block|function|modifier.函数名称.php
+    方法命名 smarty_function|block|modifier_函数名称()
+```
