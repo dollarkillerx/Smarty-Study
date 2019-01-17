@@ -64,4 +64,6 @@ $smarty->assign('options',[
 //显示
 //$smarty->display('smarty.html',1,2);
 //$smarty->display('loop.html');
-$smarty->display('tag_func.html');
+//$smarty->display('tag_func.html');
+//$smarty->display('modifier.html');
+$smarty->display('bloock_func.html');

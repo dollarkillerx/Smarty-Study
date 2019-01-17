@@ -210,3 +210,132 @@ $smarty->assign('options',[
 {html_options name='hobby' options=$options }
 options=$options 就可以用写vulues optput了
 ```
+
+>前端开发部分变量修饰器
+
+- capitalize
+```
+    {$str='123thIs is string'}
+    {$str|capitalize:false:true}
+    首字母大写
+    :单词有数字是否也要大写
+    ::是否保证只有首字母大写
+```
+- cat
+```
+    {$str|cat:'hero'}
+    添加内容
+    注释:如果要多个变量修饰去工作{$str|修饰器|修饰器|修饰器}
+```
+- count_characters
+- count_paragraphs
+- count_sentences
+- count_words
+```
+    {$str|count_characters}
+    count_characters 统计字母
+    count_paragraphs 统计段落
+    count_sentences  统计句子
+    count_words      统计单词
+```
+- default
+```
+    {$str2|default:'Not Data'}
+    默认值
+```
+- date_format
+```
+    {time()|date_format:"%y-%m-%D %H-%M-%S"}
+    模板字符串
+```
+- from_charset
+``` 
+    {$chinese = '中文'}
+    {$chinese|from_charset:"utf-8"|to_charset:"gb2312"}
+    转码
+```
+- indent
+``` 
+    {$str|indent:10:"/"}
+    缩进 默认4个 默认空格
+```
+- lower
+- upper
+``` 
+    {$str|lower}
+    lower全部转成小写
+    upper全部大写
+```
+- nl2br
+``` 
+    {$str2="this is p1.\n This is p2."}
+    {$str2|nl2br}
+    转义
+```
+- regex_replace
+``` 
+    {$str|regex_replace:"/\d+/":" "}
+    正则替换
+```
+- replace
+```
+    {$str|replace:"123123":'0000'}
+    替换
+```
+- spacify
+```
+    间隔 默认是空格
+    {$str|spacify:'-'}
+
+```
+- string_format
+``` 
+    {$float='10.0000051511'}
+    {$float|string_format:'%.2f'}
+```
+- strip
+``` 
+    {$str3='a     b     c     d    f    '}
+    {$str3|strip:'/'}
+    多个空格变成一个
+```
+- strip_tags
+``` 
+    {$tag ='<b>Font</b>'}
+    {$tag|strip_tags}
+    去掉html php 等标签
+```
+- to_charset
+- truncate
+``` 
+    {$bigstr='asd484f84sdf8ddsf8sdf48sdf4sd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8g4s56g4sd8g4wer/89'}
+    {$bigstr|truncate:10:'--':true}
+    截取多出的默认是'--'  按照字符截取
+```
+- escape/unescape
+``` 
+    {$tag|escape}
+    把标签转成实体，原样输出
+    unescape
+    转会
+```
+- wordwrap
+```
+    {$bigstr|wordwrap:10:"\n":true}
+    折行处理
+```
+
+>前端部分块状函数
+- nocache
+```
+    不缓存
+    {nocache}   
+    {/nocache}
+```
+- textformat
+```
+    {textformat indent='4' indent_first='10' indent_char='=' wrap='45' wrap_char='<hr>' wrap_cut=ture assign='war'}
+     centent
+    {/textformat}
+    {$war}
+```

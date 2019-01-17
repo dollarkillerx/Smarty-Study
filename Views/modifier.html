@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>Modifier 变量修饰器</title>
+</head>
+<body>
+    <h1>capitalize</h1>
+    {$str='123thIs is string'}
+    {$str|capitalize:false:true}
+    <hr>
+    <h1>cat</h1>
+    {$str|cat:'hero'}
+    <hr>
+    <h1>统计</h1>
+    {$str|count_characters}
+    <hr>
+    <h1>default</h1>
+    {$str2|default:'Not Data'}
+    <hr>
+    <h1>date_format</h1>
+    {time()|date_format:"%y-%m-%D %H-%M-%S"}
+    <hr>
+    <h1>from_charset</h1>
+    {$chinese = '中文'}
+    {$chinese|from_charset:"utf-8"|to_charset:"gb2312"}
+    <hr>
+    <h1>indent</h1>
+    {$str|indent:10}
+    <hr>
+    <h1>lower</h1>
+    {$str|lower}
+    <hr>
+    <h1>nl2br</h1>
+    {$str2="this is p1.\n This is p2."}
+    {$str2|nl2br}
+    <hr>
+    <h1>regex_replace</h1>
+    {$str|regex_replace:"/\d+/":" "}
+    <hr>
+    <h1>replace</h1>
+    {$str|replace:"123123":'0000'}
+    <hr>
+    <h1>spacify</h1>
+    {$str|spacify:'-'}
+    <hr>
+    <h1>string_format</h1>
+    {$float='10.0000051511'}
+    {$float|string_format:'%.2f'}
+    <hr>
+    <h1>strip</h1>
+    {$str3='a     b     c     d    f    '}
+    {$str3|strip}
+    <hr>
+    <h1>strip_tags</h1>
+    {$tag ='<b>Font</b>'}
+    {$tag|strip_tags}
+    <hr>
+    <h1>truncate</h1>
+    {$bigstr='asd484f84sdf8ddsf8sdf48sdf4sd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8g4s56gsd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8gsd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8gsd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8gsd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8gsd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8gsd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8gsd8f4sd8f4sd8f4er8g4vre8g4er8g4er8g4er8g4sd8g4wer/89'}
+    {$bigstr|truncate:10}
+    <hr>
+    <h1>escape/unescape</h1>
+    {$tag|escape}
+    <hr>
+    <h1>wordwrap</h1>
+    {$bigstr|wordwrap:10:"\n":true}
+    <hr>
+    <h1></h1>
+    <hr>
+    <h1></h1>
+</body>
+</html>
