@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>单标签函数</title>
+</head>
+<body>
+    <h1>Assign</h1>
+    {assign var="name" value="Jason"}
+    OR
+    {assign "name" "Dollar Killer"}
+    <h4>{$name}</h4>
+    <hr>
+    <h1>append</h1>
+    {append var="arr1" value="5"  index="4"}
+    {var_dump($arr1)}
+    <hr>
+    <h1>ldelim</h1>
+    {ldelim}$name{rdelim}
+    <hr>
+    <h1>include</h1>
+    {include file='loop.html'}
+    <hr>
+    <h1>html_checkboxes</h1>
+    {html_checkboxes name='hobby' values=$hobby_ids output=$hobby_output}
+    <hr>
+    <h1>html_image</h1>
+    {html_image width="690" height="388" alt="DollarkILLER" href='https://github.com/dollarkillerx' file="https://upload-images.jianshu.io/upload_images/11692305-3bffdaaf46cf2e9e.jpeg"}
+    <hr>
+    <h1>html_options</h1>
+    {html_options name='hobby' values=$hobby_ids output=$hobby_output}
+    {html_options name='hobby' options=$options}
+    <hr>
+    <h1>html_radios</h1>
+    {html_radios name='radio' options=$options}
+    <hr>
+    <h1>html_select_date</h1>
+    {html_select_date}
+    <hr>
+    <h1>html_select_time</h1>
+    {html_select_time}
+    <hr>
+    <h1>html_table</h1>
+    {html_table loop=$arr1 cols=2 rows=3}
+    <hr>
+    <h1>mailto</h1>
+    {mailto address="dollarkiller@d.com" subject="title" text='显示内容' cc='抄送内容'}
+    <hr>
+    <h1>math</h1>
+    {math equation="x + y" x = 100 y = 200}
+</body>
+</html>

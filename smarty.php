@@ -20,7 +20,7 @@ $smarty->setCompileDir('./runtime/Compile');
 //设置配置文件路径
 $smarty->setConfigDir('./Config');
 //设置插件地址
-$smarty->setPluginsDir('./Plugins');
+$smarty->addPluginsDir('./Plugins');
 //设置cache地址
 $smarty->setCacheDir('./runtime/Cache');
 
@@ -44,9 +44,24 @@ $smarty->assign([
     'arr'=>[
         'username'=>'dollarkiller',
         'age'=>16
-    ]
+    ],
+    'arr1'=>[1,2,3,4]
+]);
+
+$smarty->assign([
+    'hobby_ids'=>[1,2,3],
+    'hobby_output'=>['听书','code','追番']
+]);
+
+$smarty->assign('options',[
+    1=>'看书',
+    2=>'追番',
+    3=>'code',
+    4=>'听书',
+    5=>'二次元',
 ]);
 
 //显示
 //$smarty->display('smarty.html',1,2);
-$smarty->display('loop.html');
+//$smarty->display('loop.html');
+$smarty->display('tag_func.html');

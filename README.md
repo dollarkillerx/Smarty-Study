@@ -124,4 +124,89 @@ OR 使用Smarty保留变量$smarty.config.来调用
 ```
 - {section} 遍历数组
 
+>前端常用标签函数
+- assign  定义变量
+```
+    {assign var="name" value="Jason"}
+    OR
+    {assign "name" "Dollar Killer"}
+    <h1>{$name}</h1>
+```
+- append
+```
+    {append var="arr1" value="5"  index="4"}
+    先数值中增加值 目标Array arr1 值5 索引4
+```
+- ldelim
+- rdelim
+```
+    {ldelim}$name{rdelim}
+    原样输出不会被解析
+    {$name} 
+```
+- include
+```
+    {include file='loop.html'}
+    加载外部html模板  加载头or尾巴 侧边栏 导航
+```
+- html_checkboxes
+```
+    {html_checkboxes name='hobby' values=$hobby_ids output=$hobby_output}
+    复选框 name 复选框名称 
+    注意这个可能会引发插件问题
+    修改setPluginsDir 为 addPluginsDir
+```
+- html_image
+```
+        {html_image width="690" height="388" alt="DollarkILLER" href='https://github.com/dollarkillerx' file="https://upload-images.jianshu.io/upload_images/11692305-3bffdaaf46cf2e9e.jpeg"}
+```
+- html_options
+```
+        {html_options name='hobby' values=$hobby_ids output=$hobby_output}
+        下拉查单
+        属性 selected=1 默认选中
+        语法和html_checkboxes类似
+```
+- html_radios
+```
+        {html_radios name='radio' options=$options}
+        单选框
+        语法和html_checkboxes类似
+```
+- html_select_date
+```
+    {html_select_date}
+    年月日 日期选择
+```
+- html_select_time
+```
+   {html_select_time}
+   时间选择     
+```
+- html_table
+```
+    {html_table loop=$arr1 cols=2 rows=3}
+```
+- mailto
+```
+    {mailto address="dollarkiller@d.com" subject="title" text='显示内容' cc='抄送内容'}
+    邮件
+```
+- math
+```
+    {math equation="x + y" x = 100 y = 200}
+    数学计算
+```
 
+###### 对于html_radios html_options html_checkboxes
+```
+$smarty->assign('options',[
+    1=>'看书',
+    2=>'追番',
+    3=>'code',
+    4=>'听书',
+    5=>'二次元',
+]);
+{html_options name='hobby' options=$options }
+options=$options 就可以用写vulues optput了
+```
